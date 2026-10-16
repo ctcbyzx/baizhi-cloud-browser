@@ -1,0 +1,36 @@
+{
+  "name": "agent-browser-plugin-capybrowser",
+  "version": "0.1.3",
+  "description": "Baizhi Cloud Browser provider plugin for agent-browser",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "bin": {
+    "capy-agent-browser-provider": "./dist/plugin.js",
+    "capy-agent-browser-session": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --experimental-strip-types --test test/*.test.ts",
+    "pretest:agent-browser": "npm run build",
+    "test:agent-browser": "node --experimental-strip-types scripts/test-agent-browser.ts",
+    "pretest:plugin-cli": "npm run build",
+    "test:plugin-cli": "node --experimental-strip-types scripts/test-plugin-cli.ts",
+    "pretest:timeout-edge": "npm run build",
+    "test:timeout-edge": "node --experimental-strip-types scripts/test-timeout-edge.ts",
+    "pack:local": "npm pack",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "agent-browser": "0.38.2",
+    "typescript": "^5.8.3"
+  }
+}
