@@ -3,6 +3,7 @@
 <p align="center">Baizhi Cloud Browser · 为 Agent 提供可复用的云端浏览器，支持网页操作、登录状态保存与人工介入。</p>
 
 <p align="center">
+  <a href="https://baizhibrowser.cloud/zh/">产品介绍</a> ·
   <a href="https://capybrowser.app.baizhi.cloud/">服务控制台</a> ·
   <a href="https://capybrowser.app.baizhi.cloud/docs/installation.md">接入指南</a> ·
   <a href="#客户端接入">客户端集成</a> ·
@@ -13,9 +14,11 @@
 
 百智云云浏览器让 Agent 按需启动独立的云端浏览器，继续使用 Playwright、Puppeteer 等熟悉的工具访问和操作网页，无需在本机启动对应的 Chromium。
 
-需要本人登录或确认时，可以进入同一浏览器处理，再交还 Agent。按接入指南保存登录后的浏览器状态，下次运行可继续复用；网站是否继续认可登录状态，取决于其自身规则。网页中下载或导出的文件，也可以通过接口取回。
+想了解 Agent 正在做什么，可以让它提供当前浏览器的观看链接；需要本人登录或确认时，再按授权进入同一浏览器处理，完成后交还 Agent。按接入指南成功保存登录后的浏览器状态，下次使用同一份状态启动时可继续复用；网站是否继续认可登录状态，取决于其自身规则。网页中下载或导出的文件，也可以通过接口取回。
 
-本仓库由 **`ctcbyzx` 维护**，整理 agent-browser 插件、browser-use 示例与 DeerFlow 配置说明，**不包含托管服务的后端源码**。在线服务的账号权限、使用规则和计费以[控制台](https://capybrowser.app.baizhi.cloud/)及[服务文档](https://capybrowser.app.baizhi.cloud/docs/installation.md)为准。
+需要不同网络来源时，可让 Agent 查询当前可用线路，并在创建运行时选择。线路是否可用及其价格以当前账号的目录为准，不保证固定 IP 或特定网站一定可访问。操作方式见[完整接入参考](https://capybrowser.app.baizhi.cloud/docs/browser-reference.md)。
+
+本仓库由 **`ctcbyzx` 维护**，整理客户端插件、示例与 MCP 接入说明，**不包含托管服务的后端源码**。[Chaitin 组织仓库](https://github.com/chaitin/baizhi-cloud-browser)也已收录公开接入材料；插件 `v0.1.3` 安装包继续使用本仓库的 GitHub Release。在线服务的账号权限、使用规则和计费以[控制台](https://capybrowser.app.baizhi.cloud/)及[服务文档](https://capybrowser.app.baizhi.cloud/docs/installation.md)为准。
 
 ## 快速开始
 
@@ -26,14 +29,16 @@
 https://capybrowser.app.baizhi.cloud/docs/installation.md
 
 使用云浏览器完成我指定的网页任务，并返回实际读取或操作的结果。
-沿用已有的 MCP 和安全配置的凭据，只补缺少的接入能力。
-如果我还没有给出网址和任务，请先询问。任务正常结束或发生异常时，
-都要结束本次创建的浏览器运行，核对资源释放与费用状态。
+先核对服务地址和凭据用途，符合时沿用已有 MCP 与安全配置，只补缺少的接入能力。
+如果我还没有给出网址和任务，请先询问。创建收费运行前，先确认页面客户端可用并查询价格。
+需要我登录或确认时，保留同一次运行，暂停页面操作，待我交还后再继续；
+不要把人工接管造成的断连当成任务异常而自动结束运行。
+任务正常结束或发生其他异常时，都要有界结束本次创建的运行，分别核对资源释放与费用状态。
 ```
 
 在 Agent 的安全配置中提供自己的 API Key；平台个人中心 Key 和云浏览器应用内 Key 均以 Bearer 方式调用。已有可用配置时直接复用，不要把真实 Key 粘贴进上述提示词、代码或公开反馈。
 
-**MCP／HTTP API 管理浏览器运行；网页导航、点击和读取由 CDP 客户端执行。** 只接通 MCP 尚不代表 Agent 已具备页面操作能力，接入指南会引导它检查现有环境。
+**MCP／HTTP API 管理浏览器运行；网页导航、点击和读取由 CDP 客户端执行。** 只接通 MCP 尚不代表 Agent 已具备页面操作能力，接入指南会引导它检查现有环境。HTTP 新 Agent 可使用指南中的官方首跑脚本完成一个小任务；已有匹配 MCP 配置的 Agent 沿用原入口，不重复创建运行。
 
 ## 客户端接入
 
@@ -41,10 +46,11 @@ https://capybrowser.app.baizhi.cloud/docs/installation.md
 | --- | --- | --- |
 | [Playwright／Puppeteer 等 CDP 客户端](https://capybrowser.app.baizhi.cloud/docs/installation.md) | 服务接入指南；沿用已有网页操作代码连接云端浏览器 | HTTP／MCP 管理运行，CDP 客户端操作页面 |
 | [agent-browser](integrations/agent-browser/README.md) | 可安装的独立插件；管理云端运行，沿用 agent-browser 网页命令 | [v0.1.3 已发布](https://github.com/ctcbyzx/baizhi-cloud-browser/releases/tag/v0.1.3)；对应 Node.js 24+、agent-browser 0.38.2 |
-| [browser-use](docs/browser-use.md) | 网页读取示例、环境准备与异常恢复指南 | [草稿 PR #6100](https://github.com/browser-use/browser-use/pull/6100) 待审核；示例可从维护者分支获取 |
-| [DeerFlow](docs/deerflow.md) | HTTP MCP 配置指南与插件目录入口说明 | [草稿 PR #6976](https://github.com/bytedance/deer-flow/pull/6976) 待审核；可先手动配置 HTTP MCP |
+| [browser-use](docs/browser-use.md) | 网页读取示例、环境准备与异常恢复指南 | [PR #6100](https://github.com/browser-use/browser-use/pull/6100) 待审核；示例可从维护者分支获取 |
+| [DeerFlow](docs/deerflow.md) | HTTP MCP 配置指南与插件目录入口说明 | [PR #6976](https://github.com/bytedance/deer-flow/pull/6976) 待审核；可先手动配置 HTTP MCP |
+| [Cline／Kilo](docs/integrations.md#cline-与-kilo) | 远程 MCP 配置与市场条目 | [Cline #308](https://github.com/cline/marketplace/pull/308)、[Kilo #454](https://github.com/Kilo-Org/kilo-marketplace/pull/454) 正式待审、尚未收录；可按各客户端说明手动配置 |
 
-接入状态核对于 2026-10-20，最新状态以发布页或 PR 为准。agent-browser 插件通过 GitHub Release 安装包分发；browser-use 和 DeerFlow 的待审内容在各自上游仓库维护。更多说明见[生态集成说明](docs/integrations.md)。
+接入状态核对于 2026-10-25，以上五份生态 PR 均为正式待审、尚未合并。agent-browser 插件可独立安装，其[上游文档 PR #2132](https://github.com/vercel-labs/agent-browser/pull/2132)尚未合并，不影响插件使用。其他待审内容在各自上游分支维护，最新状态以发布页或 PR 为准。更多说明见[生态集成说明](docs/integrations.md)。
 
 ## 连接信息
 
