@@ -1,6 +1,6 @@
 # Baizhi Cloud Browser provider for agent-browser
 
-This package lets `agent-browser` use a Session hosted by Baizhi Cloud Browser as its remote CDP browser. The service creates and owns the browser; `agent-browser` keeps its existing page commands for navigation, snapshots, clicks, and form input.
+This package lets `agent-browser` use a Session hosted by Baizhi Cloud Browser (CapyBrowser) as its remote CDP browser. The service creates and owns the browser; `agent-browser` keeps its existing page commands for navigation, snapshots, clicks, and form input.
 
 ## Requirements
 

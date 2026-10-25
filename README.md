@@ -1,6 +1,6 @@
 <h1 align="center">百智云云浏览器</h1>
 
-<p align="center">Baizhi Cloud Browser · 为 Agent 提供可复用的云端浏览器，支持网页操作、登录状态保存与人工介入。</p>
+<p align="center">Baizhi Cloud Browser（CapyBrowser）· 为 Agent 提供可复用的云端浏览器，支持网页操作、登录状态保存与人工介入。</p>
 
 <p align="center">
   <a href="https://baizhibrowser.cloud/zh/">产品介绍</a> ·

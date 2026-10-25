@@ -1,6 +1,6 @@
 # browser-use 接入
 
-已有 browser-use Agent 时，可以将页面操作连接到百智云云浏览器，由云端提供浏览器运行，browser-use 负责读取与操作网页。
+已有 browser-use Agent 时，可以将页面操作连接到百智云云浏览器（Baizhi Cloud Browser，也称 CapyBrowser），由云端提供浏览器运行，browser-use 负责读取与操作网页。
 
 当前提供一个完整的公开网页读取示例：读取 W3C 示例页的标题与说明句，返回内容，并结束浏览器运行、查询资源释放和账单状态。示例位于 [browser-use PR #6100](https://github.com/browser-use/browser-use/pull/6100)，正式待审、尚未合并；可从维护者分支获取，不要求安装 agent-browser 插件。
 

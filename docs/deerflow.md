@@ -1,6 +1,6 @@
 # DeerFlow 接入
 
-DeerFlow 可通过 HTTP MCP 连接百智云云浏览器，使用其身份验证、价格查询、浏览器运行、Profile、人工处理和下载管理工具。
+DeerFlow 可通过 HTTP MCP 连接百智云云浏览器（Baizhi Cloud Browser，也称 CapyBrowser），使用其身份验证、价格查询、浏览器运行、Profile、人工处理和下载管理工具。
 
 **这条连接提供浏览器运行管理能力。** 页面导航、点击和输入仍需要 Agent 可调用的 CDP 客户端；添加 MCP 不会自动替换 DeerFlow 自带的浏览器后端。
 
