@@ -46,6 +46,7 @@ https://capybrowser.app.baizhi.cloud/docs/installation.md
 | --- | --- | --- |
 | [Playwright／Puppeteer 等 CDP 客户端](https://capybrowser.app.baizhi.cloud/docs/installation.md) | 服务接入指南；沿用已有网页操作代码连接云端浏览器 | HTTP／MCP 管理运行，CDP 客户端操作页面 |
 | [agent-browser](integrations/agent-browser/README.md) | 可安装的独立插件；管理云端运行，沿用 agent-browser 网页命令 | [v0.1.3 已发布](https://github.com/ctcbyzx/baizhi-cloud-browser/releases/tag/v0.1.3)；对应 Node.js 24+、agent-browser 0.38.2 |
+| [DSH](integrations/dsh/README.md) | 百智云浏览器独立插件，按需启动云浏览器并接入网页工具 | [v0.1.0 安装包](https://github.com/ctcbyzx/baizhi-cloud-browser/releases/tag/dsh-v0.1.0)；适用 DSH Web 0.2.1-rc.3，安装和配置见插件说明 |
 | [browser-use](docs/browser-use.md) | 网页读取示例、环境准备与异常恢复指南 | [PR #6100](https://github.com/browser-use/browser-use/pull/6100) 待审核；示例可从维护者分支获取 |
 | [DeerFlow](docs/deerflow.md) | HTTP MCP 配置指南与插件目录入口说明 | [PR #6976](https://github.com/bytedance/deer-flow/pull/6976) 待审核；可先手动配置 HTTP MCP |
 | [Cline／Kilo](docs/integrations.md#cline-与-kilo) | 远程 MCP 配置与市场条目 | [Cline #308](https://github.com/cline/marketplace/pull/308)、[Kilo #454](https://github.com/Kilo-Org/kilo-marketplace/pull/454) 正式待审、尚未收录；可按各客户端说明手动配置 |
