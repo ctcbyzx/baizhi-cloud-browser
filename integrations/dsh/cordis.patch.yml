@@ -1,0 +1,7 @@
+- insert:
+    - id: baizhi-browser-use-registry
+      name: '@deepseek-ai/dsh-browser-use'
+      disabled: !!js "!!ctx.get('browserUse')"
+    - id: baizhi-cloud-browser
+      name: dsh-baizhi-cloud-browser
+      disabled: true
