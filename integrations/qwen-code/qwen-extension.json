@@ -1,0 +1,12 @@
+{
+  "name": "baizhi-cloud-browser",
+  "version": "0.1.0",
+  "mcpServers": {
+    "baizhi-cloud-browser": {
+      "httpUrl": "https://capybrowser.app.baizhi.cloud/mcp",
+      "headers": {
+        "Authorization": "Bearer ${CAPYBROWSER_API_KEY}"
+      }
+    }
+  }
+}

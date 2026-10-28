@@ -1,4 +1,4 @@
-<h1 align="center">百智云云浏览器</h1>
+<h1 align="center">百智云浏览器</h1>
 
 <p align="center">Baizhi Cloud Browser（CapyBrowser）· 为 Agent 提供可复用的云端浏览器，支持网页操作、登录状态保存与人工介入。</p>
 
@@ -12,20 +12,20 @@
 
 ## 项目介绍
 
-百智云云浏览器让 Agent 按需启动独立的云端浏览器，继续使用 Playwright、Puppeteer 等熟悉的工具访问和操作网页，无需在本机启动对应的 Chromium。
+百智云浏览器让 Agent 按需启动独立的云端浏览器，继续使用 Playwright、Puppeteer 等熟悉的工具访问和操作网页，无需在本机启动对应的 Chromium。
 
 想了解 Agent 正在做什么，可以让它提供当前浏览器的观看链接；需要本人登录或确认时，再按授权进入同一浏览器处理，完成后交还 Agent。按接入指南成功保存登录后的浏览器状态，下次使用同一份状态启动时可继续复用；网站是否继续认可登录状态，取决于其自身规则。网页中下载或导出的文件，也可以通过接口取回。
 
 需要不同网络来源时，可让 Agent 查询当前可用线路，并在创建运行时选择。线路是否可用及其价格以当前账号的目录为准，不保证固定 IP 或特定网站一定可访问。操作方式见[完整接入参考](https://capybrowser.app.baizhi.cloud/docs/browser-reference.md)。
 
-本仓库由 **`ctcbyzx` 维护**，整理客户端插件、示例与 MCP 接入说明，**不包含托管服务的后端源码**。[Chaitin 组织仓库](https://github.com/chaitin/baizhi-cloud-browser)也已收录公开接入材料；插件 `v0.1.3` 安装包继续使用本仓库的 GitHub Release。在线服务的账号权限、使用规则和计费以[控制台](https://capybrowser.app.baizhi.cloud/)及[服务文档](https://capybrowser.app.baizhi.cloud/docs/installation.md)为准。
+本仓库由 **`ctcbyzx` 维护**，整理客户端插件、示例与 MCP 接入说明，**不包含托管服务的后端源码**。[Chaitin 组织仓库](https://github.com/chaitin/baizhi-cloud-browser)也已收录公开接入材料；agent-browser `v0.1.3` 与 DSH `v0.1.0` 的安装包从本仓库的 GitHub Release 分发；其他客户端以表中状态为准。在线服务的账号权限、使用规则和计费以[控制台](https://capybrowser.app.baizhi.cloud/)及[服务文档](https://capybrowser.app.baizhi.cloud/docs/installation.md)为准。
 
 ## 快速开始
 
 把下面的提示词交给你正在使用的 AI 编程助手或 Agent，并补充要访问的网址和任务：
 
 ```text
-请阅读百智云云浏览器接入指南：
+请阅读百智云浏览器接入指南：
 https://capybrowser.app.baizhi.cloud/docs/installation.md
 
 使用云浏览器完成我指定的网页任务，并返回实际读取或操作的结果。
@@ -47,11 +47,14 @@ https://capybrowser.app.baizhi.cloud/docs/installation.md
 | [Playwright／Puppeteer 等 CDP 客户端](https://capybrowser.app.baizhi.cloud/docs/installation.md) | 服务接入指南；沿用已有网页操作代码连接云端浏览器 | HTTP／MCP 管理运行，CDP 客户端操作页面 |
 | [agent-browser](integrations/agent-browser/README.md) | 可安装的独立插件；管理云端运行，沿用 agent-browser 网页命令 | [v0.1.3 已发布](https://github.com/ctcbyzx/baizhi-cloud-browser/releases/tag/v0.1.3)；对应 Node.js 24+、agent-browser 0.38.2 |
 | [DSH](integrations/dsh/README.md) | 百智云浏览器独立插件，按需启动云浏览器并接入网页工具 | [v0.1.0 安装包](https://github.com/ctcbyzx/baizhi-cloud-browser/releases/tag/dsh-v0.1.0)；适用 DSH Web 0.2.1-rc.3，安装和配置见插件说明 |
+| [Qwen Code](integrations/qwen-code/README_CN.md) | 原生 MCP 配置和使用 Skill；页面操作需兼容 CDP 客户端 | 0.1.0 本地候选已完成验证，尚未发布；计划从本仓库分发，未获官方市场收录 |
+| [ZCode](https://github.com/zai-org/zcode-plugins/pull/136) | 社区 MCP 插件，检查凭据并管理浏览器资源 | PR #136 待审，尚未收录；网页操作需单独 CDP 客户端 |
+| [Cherry Studio](https://github.com/CherryHQ/cherry-studio-website/pull/75) | 中英文自定义 MCP 配置教程 | 中英文配置教程已合并，可按教程手动配置 MCP |
 | [browser-use](docs/browser-use.md) | 网页读取示例、环境准备与异常恢复指南 | [PR #6100](https://github.com/browser-use/browser-use/pull/6100) 待审核；示例可从维护者分支获取 |
 | [DeerFlow](docs/deerflow.md) | HTTP MCP 配置指南与插件目录入口说明 | [PR #6976](https://github.com/bytedance/deer-flow/pull/6976) 待审核；可先手动配置 HTTP MCP |
 | [Cline／Kilo](docs/integrations.md#cline-与-kilo) | 远程 MCP 配置与市场条目 | [Cline #308](https://github.com/cline/marketplace/pull/308)、[Kilo #454](https://github.com/Kilo-Org/kilo-marketplace/pull/454) 正式待审、尚未收录；可按各客户端说明手动配置 |
 
-接入状态核对于 2026-10-25，以上五份生态 PR 均为正式待审、尚未合并。agent-browser 插件可独立安装，其[上游文档 PR #2132](https://github.com/vercel-labs/agent-browser/pull/2132)尚未合并，不影响插件使用。其他待审内容在各自上游分支维护，最新状态以发布页或 PR 为准。更多说明见[生态集成说明](docs/integrations.md)。
+接入状态核对于 2026-10-28，公开发布、文档合并与待审 PR 分别标注。各集成仅提供表中说明的能力。agent-browser 插件可独立安装，其[上游文档 PR #2132](https://github.com/vercel-labs/agent-browser/pull/2132)待审，不影响独立插件使用。[Awesome China MCP #9](https://github.com/zackchewa/awesome-china-mcp/pull/9)是目录投稿，仍待审核。其他待审内容在各自上游分支维护，最新状态以发布页或 PR 为准。更多说明见[生态集成说明](docs/integrations.md)。
 
 ## 连接信息
 
@@ -81,4 +84,4 @@ https://capybrowser.app.baizhi.cloud/docs/installation.md
 - 账号、计费和私密问题：通过服务控制台提供的支持渠道反馈。
 - 安全问题与凭据泄漏：按[安全说明](SECURITY.md)处理，不在公开 Issue 中贴出敏感信息。
 
-agent-browser 插件采用其目录中的 [MIT License](integrations/agent-browser/LICENSE)。在线服务的使用权限与计费规则独立于插件许可证。
+agent-browser 插件采用其目录中的 [MIT License](integrations/agent-browser/LICENSE)，Qwen Code 扩展采用其目录中的 [Apache-2.0](integrations/qwen-code/LICENSE)。在线服务的使用权限与计费规则独立于插件许可证。
