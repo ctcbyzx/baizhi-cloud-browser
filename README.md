@@ -47,7 +47,7 @@ https://capybrowser.app.baizhi.cloud/docs/installation.md
 | [Playwright／Puppeteer 等 CDP 客户端](https://capybrowser.app.baizhi.cloud/docs/installation.md) | 服务接入指南；沿用已有网页操作代码连接云端浏览器 | HTTP／MCP 管理运行，CDP 客户端操作页面 |
 | [agent-browser](integrations/agent-browser/README.md) | 可安装的独立插件；管理云端运行，沿用 agent-browser 网页命令 | [v0.1.3 已发布](https://github.com/ctcbyzx/baizhi-cloud-browser/releases/tag/v0.1.3)；对应 Node.js 24+、agent-browser 0.38.2 |
 | [DSH](integrations/dsh/README.md) | 百智云浏览器独立插件，按需启动云浏览器并接入网页工具 | [v0.1.0 安装包](https://github.com/ctcbyzx/baizhi-cloud-browser/releases/tag/dsh-v0.1.0)；适用 DSH Web 0.2.1-rc.3，安装和配置见插件说明 |
-| [Qwen Code](integrations/qwen-code/README_CN.md) | 原生 MCP 配置和使用 Skill；页面操作需兼容 CDP 客户端 | 0.1.0 本地候选已完成验证，尚未发布；计划从本仓库分发，未获官方市场收录 |
+| [Qwen Code](integrations/qwen-code/README_CN.md) | 原生 MCP 配置和使用 Skill；页面操作需兼容 CDP 客户端 | [v0.1.0 已发布](https://github.com/ctcbyzx/baizhi-cloud-browser/releases/tag/qwen-code-v0.1.0)；验证宿主 Qwen Code 0.26.2，未获官方市场收录 |
 | [ZCode](https://github.com/zai-org/zcode-plugins/pull/136) | 社区 MCP 插件，检查凭据并管理浏览器资源 | PR #136 待审，尚未收录；网页操作需单独 CDP 客户端 |
 | [Cherry Studio](https://github.com/CherryHQ/cherry-studio-website/pull/75) | 中英文自定义 MCP 配置教程 | 中英文配置教程已合并，可按教程手动配置 MCP |
 | [browser-use](docs/browser-use.md) | 网页读取示例、环境准备与异常恢复指南 | [PR #6100](https://github.com/browser-use/browser-use/pull/6100) 待审核；示例可从维护者分支获取 |
